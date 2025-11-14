@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> X (WIP)</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+
+        <nav class="sidebar">
+            <div id="nav-top">
+                <a href="#" class="sidebar-logo">
+                    <i class="fa-brands fa-xing"></i>
+                </a>
+                
+                <div id="nav-links-main"></div>
+
+                <button class="btn-post hidden" id="nav-post-button">Post</button>
+            </div>
+
+            <div id="nav-profile-widget" class="hidden"></div>
+        </nav>
+
+        <main class="main-content">
+
+            <section class="view hidden" id="login-view">
+                <div class="auth-view">
+                    <form class="auth-form" id="login-form">
+                        <h2>Iniciar sesión en X</h2>
+                        <div class="error-message" id="login-error"></div>
+                        <input type="text" id="login-username" placeholder="Nombre de usuario" required>
+                        <input type="password" id="login-password" placeholder="Contraseña" required>
+                        <button type="submit">Iniciar sesión</button>
+                        <p class="toggle-link" id="show-register">¿No tienes cuenta? Regístrate</p>
+                    </form>
+                </div>
+            </section>
+
+            <section class="view hidden" id="register-view">
+                <div class="auth-view">
+                    <form class="auth-form" id="register-form">
+                        <h2>Crea tu cuenta</h2>
+                        <div class="error-message" id="register-error"></div>
+                        <input type="text" id="register-displayname" placeholder="Nombre para mostrar" required>
+                        <input type="text" id="register-username" placeholder="Nombre de usuario (min 3)" required>
+                        <input type="password" id="register-password" placeholder="Contraseña (min 6)" required>
+                        <button type="submit">Registrarse</button>
+                        <p class="toggle-link" id="show-login">¿Ya tienes cuenta? Inicia sesión</p>
+                    </form>
+                </div>
+            </section>
+
+            <section class="view hidden" id="feed-view">
+                <div class="view-header">
+                    <h2>Home</h2>
+                </div>
+
+                <form class="post-box" id="post-form">
+                    <div class="post-box-input-area">
+                        <img src="https://via.placeholder.com/150" alt="Tu Avatar" class="avatar" id="post-box-avatar">
+                        <textarea id="post-content-input" placeholder="What's happening?"></textarea>
+                    </div>
+                    <div class="post-box-actions">
+                        <button type="submit" class="btn-post-small">Post</button>
+                    </div>
+                </form>
+
+                <div id="feed-container"></div>
+            </section>
+            
+            <section class="view hidden" id="profile-view">
+                <div class="view-header">
+                    <h2 id="profile-header-name">Perfil</h2>
+                </div>
+
+                <div class="profile-header">
+                    <div class="profile-main">
+                        <img src="https://via.placeholder.com/150" alt="Avatar" class="profile-avatar" id="profile-avatar">
+                        
+                        <form id="upload-picture-form" class="upload-form hidden">
+                            <input type="file" id="profile-picture-input" accept="image/*">
+                            <button type="submit">Subir</button>
+                        </form>
+                    </div>
+                    <div class="profile-info">
+                        <div class="display-name" id="profile-displayname"></div>
+                        <div class="username" id="profile-username"></div>
+                    </div>
+                </div>
+
+                <div id="profile-posts-container"></div>
+            </section>
+            
+        </main>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
