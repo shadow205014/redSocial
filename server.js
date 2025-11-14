@@ -22,7 +22,7 @@ const io = socketIo(server, {
 // --- Middleware ---
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public')); // Sirve el frontend (index.html, app.js, style.css)
+app.use(express.static(path.join(__dirname, 'public'))); // Sirve el frontend (index.html, app.js, style.css)
 // Sirve los archivos subidos (fotos de perfil)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
@@ -264,4 +264,5 @@ io.on('connection', (socket) => {
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
   console.log(`🚀 Servidor corriendo en puerto ${PORT}`);
+
 });
